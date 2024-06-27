@@ -15,6 +15,7 @@ def FaciesSAM(args):
 
     # sub_pred1 = deepcopy(pred_masks)
     # sub_gt1 = deepcopy(gt_masks) 
+    
     #print semantic segmentation results
     mIoU(pred_masks, gt_masks, split=args.split)
     class_accuracy(pred_masks, gt_masks, split=args.split)
