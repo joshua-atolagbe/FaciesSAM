@@ -10,7 +10,7 @@ def FaciesSAM(args):
                             device=device, plots=True,
                             imgsz=args.img_sz)
 
-    print('Done')
+    print('Done! See results')
 
 if __name__ == '__main__':
      
