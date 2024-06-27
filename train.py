@@ -104,10 +104,8 @@ if __name__ == '__main__':
         patience=15,
         plots=True,
         fliplr= 0.5,
-        mosaic= 1.0,
-        mixup= 0.15,
-        copy_paste= 0.3,
-        scale=0.9,
+        mosaic= 1.0, #you can modify
+        mixup= 0.15, #you can modify
+        copy_paste= 0.3, #you can modify
+        scale=0.9, #you can modify
     )
-
-
