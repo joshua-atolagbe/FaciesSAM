@@ -111,7 +111,7 @@ def merge_multi_segment(segments):
                     s.append(segments[i][nidx:])
     return s
 
-def save_labels(p='/content/drive/My Drive/Facies Segmentation/data/data1/', split='train'):
+def save_labels(p, split='train'):
 
     labels = p+'labels/'+split
 
