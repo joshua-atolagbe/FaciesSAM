@@ -4,10 +4,10 @@
 <img src='figures/arc.png'>
 
 ## Dataset
-- All data used for training, validating and testing can be downloaded [here](https://drive.google.com/drive/folders/1uwUPxaNpUfTBIfLldxgFNcdTaoJ8zR7D?usp=sharing). 
+- All data used for training, validating and testing can be downloaded [here](https://drive.google.com/drive/folders/1Hx4BwVMhB4ElkggcKbc60UexywIEo9UL?usp=sharing). 
 
-- Data directory should be: 
-```python3
+- The `data` directory should have this structure: 
+```text
   data   
     ├── sa.yaml
     ├── images
@@ -55,6 +55,15 @@ pip install git+https://github.com/openai/CLIP.git
 + +NVIDIA GPU + CUDA CuDNN
 + +Linux (Ubuntu)
 + +Python v3.10
+
+## Model Checkpoints
+FaciesSAM has four variants:
+- FaciesSAM-s-320.pt: trained on image size of 320 and has few parameters
+- FaciesSAM-s.pt: trained on image size of 640 and has few parameters 
+- FaciesSAM-x-320.pt: trained on image size of 320 and has large parameters
+- FaciesSAM-x.pt: trained on image size of 640 and has large parameters
+
+All model checkpoints can be accessed [here](https://drive.google.com/drive/folders/1uwUPxaNpUfTBIfLldxgFNcdTaoJ8zR7D?usp=sharing). **Note**: `FaciesSAMv2.pt` is based on `YOLOv9c-seg`  
 ## Get the validation/test instance segmentation results
 Open a terminal and run
 ```shell
