@@ -11,7 +11,7 @@ from fastsam import FastSAM
 torch.manual_seed(2024)
 
 # Load the pre-trained model
-model = FastSAM('model/FaciesSAM.pt')
+model = FastSAM('../models/FaciesSAM-x.pt') #modify based on model
 
 device = torch.device(
     "cuda"
@@ -190,12 +190,12 @@ segm_img_t = gr.Image(label="Segmented Image with text", interactive=False, type
 global_points = []
 global_point_label = []
 
-input_size_slider = gr.components.Slider(minimum=512,
+input_size_slider = gr.components.Slider(minimum=256,
                                          maximum=1024,
                                          value=640,
                                          step=64,
                                          label='Input_size',
-                                         info='Our model was trained on a size of 640')
+                                         info='Our model was trained on a size of 320 and 640')
 
 with gr.Blocks(css=css, title='Facies Segment Anything') as demo:
     with gr.Row():
@@ -309,12 +309,12 @@ with gr.Blocks(css=css, title='Facies Segment Anything') as demo:
         # Submit & Clear
         with gr.Row():
             with gr.Column():
-                input_size_slider_t = gr.components.Slider(minimum=512,
+                input_size_slider_t = gr.components.Slider(minimum=256,
                                                            maximum=1024,
                                                            value=640,
                                                            step=64,
                                                            label='Input_size',
-                                                           info='Our model was trained on a size of 640')
+                                                           info='Our model was trained on a size of 320 and 640')
                 with gr.Row():
                     with gr.Column():
                         contour_check = gr.Checkbox(value=True, label='withContours', info='draw the edges of the masks')
