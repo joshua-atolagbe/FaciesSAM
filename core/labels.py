@@ -5,9 +5,9 @@ from PIL import Image
 from skimage import measure
 from shapely.geometry import Polygon
 from os import listdir
-from utils import category_ids, normalize_annotation
+from core.utils import category_ids, normalize_annotation
 from tqdm.auto import tqdm
-from getData import splits
+from core.getData import splits
 
 def create_sub_masks(mask_image):
 

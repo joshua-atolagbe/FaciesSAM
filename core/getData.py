@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import cv2
-from utils import normalize_seismic, int2pixel
+from core.utils import normalize_seismic, int2pixel
 from tqdm.auto import tqdm
 from PIL import Image
 
