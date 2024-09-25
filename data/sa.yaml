@@ -1,9 +1,13 @@
 #For the data format, please refer to https://docs.ultralytics.com/datasets/segment/coco/
-
+#path: /content/drive/My Drive/Facies Segmentation/data/data2
+#train: images/train
+#val: images/val
+#test: images/test2
+#test2: images/test2
 path: data
 train: images/train
 val: images/val
-test: images/test
+test: images/test1
 
 # number of classes
 nc: 6
@@ -16,3 +20,5 @@ names:
   3: rijnland_chalk 
   4: scruff 
   5: zechstein
+  
+
