@@ -1,13 +1,10 @@
 #For the data format, please refer to https://docs.ultralytics.com/datasets/segment/coco/
 #path: /content/drive/My Drive/Facies Segmentation/data/data2
-#train: images/train
-#val: images/val
-#test: images/test2
-#test2: images/test2
+
 path: data
 train: images/train
 val: images/val
-test: images/test1
+test: images/test_combine
 
 # number of classes
 nc: 6
