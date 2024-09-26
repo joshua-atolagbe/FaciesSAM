@@ -114,6 +114,8 @@ def getpreds_gts(p, model, img_size=640, split='val'):
                     device=device,
                     retina_masks=True,
                     imgsz=img_size,
+                    iou=0.7,
+                    conf=0.3
                     )
 
         prompt = FastSAMPrompt(path, results).everything_prompt()
@@ -144,3 +146,4 @@ def getpreds_gts(p, model, img_size=640, split='val'):
         gt_masks.append(gt_mask)
 
     return pred_masks, gt_masks
+
