@@ -40,7 +40,8 @@ class FastSAM(YOLO):
             source = ROOT / 'assets' if is_git_dir() else 'https://ultralytics.com/images/bus.jpg'
             LOGGER.warning(f"WARNING ⚠️ 'source' is missing. Using 'source={source}'.")
         overrides = self.overrides.copy()
-        overrides['conf'] = 0.25
+        overrides['conf'] = 0.3
+        overrides['iou'] = 0.7
         overrides.update(kwargs)  # prefer kwargs
         overrides['mode'] = kwargs.get('mode', 'predict')
         assert overrides['mode'] in ['track', 'predict']
@@ -104,3 +105,4 @@ class FastSAM(YOLO):
         """Raises error if object has no requested attribute."""
         name = self.__class__.__name__
         raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")
+
