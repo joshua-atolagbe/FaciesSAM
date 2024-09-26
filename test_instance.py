@@ -8,7 +8,8 @@ def FaciesSAM(args):
     model = YOLO(args.model_path) 
     results = model.val(data=args.cfg, split=args.split,
                             device=device, plots=True,
-                            imgsz=args.img_sz)
+                            imgsz=args.img_sz, conf=0.3,
+                            iou=0.7, )
 
     print('Done! See results')
 
@@ -18,7 +19,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--model_path', nargs='?', type=str, default='FaciesSAM-x.pt',
                         help='model path')
-    parser.add_argument('--cfg', nargs='?', type=str, default='sa.yaml',
+    parser.add_argument('--cfg', nargs='?', type=str, default='data/sa.yaml',
                         help='Data configuration file')
     parser.add_argument('--split', nargs='?', type=str, default='val',
                         help='val or test split')
@@ -28,4 +29,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     FaciesSAM(args)
+
 
