@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--num_freeze', nargs='?', type=int, default=0,
                         help='Number of layers to freeze')
-    parser.add_argument('--aug', nargs='?', type=bool, default=False,
+    parser.add_argument('--aug', nargs='?', type=bool, default=True,
                         help='Whether to use data augmentation.')
     parser.add_argument('--epochs', nargs='?', type=int, default=100,
                         help='Number of epochs.')
@@ -43,7 +43,7 @@ if __name__ == '__main__':
                         help='Data configuration file')
     parser.add_argument('--model_path', nargs='?', type=str, default='models/FaciesSAM-x.pt',
                         help='Path to pretrained model')
-    parser.add_argument('--name', nargs='?', type=str, default='faciesam-s',
+    parser.add_argument('--name', nargs='?', type=str, default='faciesam-x',
                         help='model name')                        
 
     args = parser.parse_args()
