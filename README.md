@@ -1,4 +1,4 @@
-# FaciesSAM: A Segment Anything Model for Seismic Facies Segmentation
+# Towards User-Guided Seismic Facies Interpretation with a Pre-trained Large Vision Model
 
 ## Architecture
 <img src='figures/arc.png'>
@@ -58,12 +58,12 @@ pip install git+https://github.com/openai/CLIP.git
 
 ## Model Checkpoints
 FaciesSAM has four variants:
-- FaciesSAM-s-320.pt: trained on image size of 320 and has few parameters
-- FaciesSAM-s.pt: trained on image size of 640 and has few parameters 
-- FaciesSAM-x-320.pt: trained on image size of 320 and has large parameters
-- FaciesSAM-x.pt: trained on image size of 640 and has large parameters
+- FaciesSAM-s-320.pt: trained on image size of 320 and has 12M parameters
+- FaciesSAM-s.pt: trained on image size of 640 and has 12M parameters 
+- FaciesSAM-x-320.pt: trained on image size of 320 and has 72M parameters
+- FaciesSAM-x.pt: trained on image size of 640 and has 72M parameters
 
-All model checkpoints can be accessed [here](https://drive.google.com/drive/folders/1uwUPxaNpUfTBIfLldxgFNcdTaoJ8zR7D?usp=sharing). **Note**: `FaciesSAMv2.pt` is based on `YOLOv9c-seg`  
+All model checkpoints can be accessed [here](https://drive.google.com/drive/folders/17aGBTfwzZJOMS5jT2QkVEQ-m9SqpQWW1). **Note**: `FaciesSAMv2.pt` is based on `YOLOv9c-seg`  
 ## Get the validation/test instance segmentation results
 Open a terminal and run
 ```shell
@@ -108,11 +108,11 @@ Navigate to the `app` directory to see how FaciesSAM+CLIP can allow you interact
 
 ## Citation
 ```text
-@article{atolagbe2024faciessam,
-  title={FaciesSAM: A Segment Anything Model for Seismic Facies Segmentation},
+@article{atolagbe2025faciessam,
+  title={Towards User-Guided Seismic Facies Interpretation with a Pre-trained Large Vision Model},
   author={Joshua Atolagbe and Ardiansyah Koeshidayatullah},
-  journal=computer&geosciences,
-  year={2024}
+  journal=IEEE Access,
+  year={2025}
 }
 ```
 ## Credit
