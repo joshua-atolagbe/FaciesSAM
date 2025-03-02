@@ -7,11 +7,14 @@ from utils.tools import format_results, box_prompt, point_prompt, text_prompt
 from PIL import ImageDraw
 from fastsam import FastSAM
 
+from warnings import filterwarnings
+filterwarnings("ignore")
+
 
 torch.manual_seed(2024)
 
 # Load the pre-trained model
-model = FastSAM('../models/FaciesSAM-x.pt') #modify based on model
+model = FastSAM('models/FaciesSAM-x-640.pt') #modify based on model
 
 device = torch.device(
     "cuda"
@@ -22,21 +25,23 @@ device = torch.device(
 )
 
 # Description
-title = "<center><strong><font size='8'>🏃 FaciesSAM: Facies Segment Anything Model 🤗 </font></strong>\
-<p>Creators: Joshua Atolagbe & Ardiansyah Koeshidayatullah</p>\
-<p>(CPG PREDICT, KFUPM)</p> </center>"
+title = "<center><strong><font size='8'>🌍 FaciesSAM: User-Guided CNN Model for Facies Segmentation </font></strong>\
+<p><strong>Creators: Joshua Atolagbe & Ardiansyah Koeshidayatullah</strong></p>\
+<p><em>(Paleo3, REservoir, DIagenesis Characterization and Technology (PREDICT) Research Group, KFUPM)</em></p></center>"
 
 news = """ # 📖 Potential
         🔥 Reformulating seismic facies segmentation as a Segment All or Segment One (SASO) task     
         
-        🔥 Focused and localized seismic facies analysis   
+        🔥 Focused and localized seismic facies analysis
+
+        🔥 Human-in-the-loop seismic interpretation   
         """  
 
 description_e = """This is a demo of FaciesSAM
                 
                 🎯 Upload an Image, segment it with FaciesSAM (Everything model). The other modes will come soon.
                 
-                ⌛️ It takes about 30~ seconds to generate segment results. The concurrency_count of queue is 1, please wait for a moment when it is crowded.
+                ⌛️ It takes about ~0.5s second to generate segment results. The concurrency_count of queue is 1, please wait for a moment when it is crowded.
                 
                 🚀 To get faster results, you can use a smaller input size and leave high_visual_quality unchecked.
                 
@@ -58,9 +63,9 @@ description_p = """ # 🎯 Instructions for points mode
                 
               """
 
-examples = [["examples/test_image_inline_200.jpg"], ["examples/test_image_inline_216.jpg"], 
-	    ["examples/test_image_inline_230.jpg"], ["examples/test_image_inline_235.jpg"],
-	    ["examples/test_image_inline_299.jpg"]]
+examples = [["app/examples/test_image_inline_200.jpg"], ["app/examples/test_image_inline_216.jpg"], 
+	    ["app/examples/test_image_inline_230.jpg"], ["app/examples/test_image_inline_235.jpg"],
+	    ["app/examples/test_image_inline_299.jpg"]]
 
 default_example = examples[-1]
 
