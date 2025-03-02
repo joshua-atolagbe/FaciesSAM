@@ -74,7 +74,9 @@ python test_instance.py\
         --img_sz 640 # Image size can either be 320 or 640
 ```
 This automatically create a new directory called `run`. Navigate to see results
-<img src='figures/instance.png'>
+<div style="display:table-cell; vertical-align:middle; text-align:center; width:90cm">
+        <img src="figures/instance.png">
+</div>
 
 ##  Get the validation/test semantic segmentation results
 Open terminal and run
