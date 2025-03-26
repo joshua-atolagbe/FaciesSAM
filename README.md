@@ -1,6 +1,7 @@
 # Towards User-Guided Seismic Facies Interpretation with a Pre-trained Large Vision Model
 
 ## Architecture
+<!-- <h2><img src='/home/joshua-atolagbe/Documents/KFUPM Research/FaciesSAM/app/logo.svg' width="200"> Towards User-Guided Seismic Facies Interpretation with a Pre-trained Large Vision Model</h2> -->
 <img src='figures/arc.png'>
 
 ## Dataset
@@ -110,12 +111,17 @@ Navigate to the `app` directory to see how FaciesSAM+CLIP can allow you interact
 
 ## Citation
 ```text
-@article{atolagbe2025faciessam,
-  title={Towards User-Guided Seismic Facies Interpretation with a Pre-trained Large Vision Model},
-  author={Joshua Atolagbe and Ardiansyah Koeshidayatullah},
-  journal=IEEE Access,
-  year={2025}
+@ARTICLE{10909446,
+  author={Atolagbe, Joshua and Koeshidayatullah, Ardiansyah},
+  journal={IEEE Access}, 
+  title={Toward User-Guided Seismic Facies Interpretation With a Pre-Trained Large Vision Model}, 
+  year={2025},
+  volume={13},
+  number={},
+  pages={42965-42976},
+  doi={10.1109/ACCESS.2025.3547931}
 }
+
 ```
 ## Credit
 The codes in this repository are based on [FastSAM](https://github.com/CASIA-IVA-Lab/FastSAM/tree/main) and [Ultralytics](https://github.com/ultralytics/ultralytics)
