@@ -24,10 +24,14 @@ device = torch.device(
     else "cpu"
 )
 
-# Description
-title = "<center><strong><font size='8'>🌍 FaciesSAM: User-Guided CNN Model for Facies Segmentation </font></strong>\
-<p><strong>Creators: Joshua Atolagbe & Ardiansyah Koeshidayatullah</strong></p>\
-<p><em>(Paleo3, REservoir, DIagenesis Characterization and Technology (PREDICT) Research Group, KFUPM)</em></p></center>"
+# Title text (without the logo - will be added separately)
+title_text = """
+<center>
+    <strong><font size="8">🌍 User-Guided Approach for Seismic Facies Segmentation</font></strong>
+    <p><strong>Creators: Joshua Atolagbe & Ardiansyah Koeshidayatullah</strong></p>
+    <p><em>(Paleo3, REservoir, DIagenesis Characterization and Technology (PREDICT) Research Group, KFUPM)</em></p>
+</center>
+"""
 
 news = """ # 📖 Potential
         🔥 Reformulating seismic facies segmentation as a Segment All or Segment One (SASO) task     
@@ -84,7 +88,7 @@ def segment_everything(
     wider=False,
     mask_random_color=True,
 ):
-    input_size = int(input_size)  # 确保 imgsz 是整数
+    input_size = int(input_size)  # Ensure imgsz is an integer
     # Thanks for the suggestion by hysts in HuggingFace.
     w, h = input.size
     scale = input_size / max(w, h)
@@ -131,7 +135,7 @@ def segment_with_points(
     global global_points
     global global_point_label
     
-    input_size = int(input_size)  # 确保 imgsz 是整数
+    input_size = int(input_size)  # Ensure imgsz is an integer
     # Thanks for the suggestion by hysts in HuggingFace.
     w, h = input.size
     scale = input_size / max(w, h)
@@ -172,13 +176,13 @@ def get_points_with_draw(image, label, evt: gr.SelectData):
     global global_point_label
 
     x, y = evt.index[0], evt.index[1]
-    point_radius, point_color = 15, (255, 255, 0) if label == 'Add Mask' else (255, 0, 255)
+    point_radius, point_color = 8, (255, 255, 0) if label == 'Add Mask' else (255, 0, 255)
     global_points.append([x, y])
     global_point_label.append(1 if label == 'Add Mask' else 0)
     
     print(x, y, label == 'Add Mask')
     
-    # 创建一个可以在图像上绘图的对象
+    # Create a drawing object
     draw = ImageDraw.Draw(image)
     draw.ellipse([(x - point_radius, y - point_radius), (x + point_radius, y + point_radius)], fill=point_color)
     return image
@@ -205,8 +209,10 @@ input_size_slider = gr.components.Slider(minimum=256,
 with gr.Blocks(css=css, title='Facies Segment Anything') as demo:
     with gr.Row():
         with gr.Column(scale=1):
-            # Title
-            gr.Markdown(title)
+            logo_html = gr.HTML('<img src="/file=app/logo.svg" alt="FaciesSAM Logo" width="200">')
+            
+            # Add the rest of the title content
+            gr.Markdown(title_text)
 
         with gr.Column(scale=1):
             # News
@@ -238,7 +244,7 @@ with gr.Blocks(css=css, title='Facies Segment Anything') as demo:
                             inputs=[cond_img_e],
                             outputs=segm_img_e,
                             fn=segment_everything,
-                           # cache_examples=True,
+                            # cache_examples=True,
                             examples_per_page=4)
 
             with gr.Column():
@@ -349,6 +355,14 @@ with gr.Blocks(css=css, title='Facies Segment Anything') as demo:
                 # Description
                 gr.Markdown(description_e)
     
+    gr.HTML("""
+    <div class="footer">
+        <p>
+            <center>PREDICT Research Group, KFUPM © 2025</center>
+        </p>
+    </div>
+    """)
+
     segment_btn_t.click(segment_everything,
                         inputs=[
                             cond_img_t,
@@ -374,4 +388,4 @@ with gr.Blocks(css=css, title='Facies Segment Anything') as demo:
     clear_btn_t.click(clear_text, outputs=[cond_img_p, segm_img_p, text_box])
 
 demo.queue()
-demo.launch(share=True)
+demo.launch(share=True, allowed_paths=["app/logo.svg"])
