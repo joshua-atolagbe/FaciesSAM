@@ -15,7 +15,7 @@ timm==0.9.16
 albumentations==1.4
 pandas>=1.1.4
 seaborn>=0.11.0
-gradio==3.35.2
+gradio==5.22.0
 grad-cam==1.4.8
 ultralytics==8.0.141
 setuptools==75.8.2
